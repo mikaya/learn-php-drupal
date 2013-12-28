@@ -8,8 +8,7 @@
  * For more information about hook_menu(), see:
  * http://api.drupal.org/api/drupal/modules--system--system.api.php/function/hook_menu/7
  *
- * In this file, we are demonstrating how to pass arguments through the menu system.
- * page.
+ * In this file, we are demonstrating how to use placeholders in menu paths.
  */
 
 /**
@@ -56,6 +55,13 @@ function pages_menu() {
     'title' => 'Argument',
     'description' => 'Menu system example using an argument.',
     'page callback' => 'pages_argument',
+    'access arguments' => array('access content'),
+  );
+  $items['pages/%/placeholder'] = array(
+    'title' => 'Placeholder',
+    'description' => 'Menu system example using a placeholder.',
+    'page callback' => 'pages_argument',
+    'page arguments' => array(1),
     'access arguments' => array('access content'),
   );
 
